@@ -95,7 +95,8 @@ class MicroBit
     // Serial Interface
     MicroBitSerial              serial;
 
-
+	// Reset Button
+	InterruptIn     		    resetButton;
 
     // Persistent key value store
     MicroBitStorage             storage;
@@ -108,7 +109,9 @@ class MicroBit
 
     // Member variables to represent each of the core components on the device.
     MicroBitDisplay             display;
-
+    MicroBitButton              buttonA;
+    MicroBitButton              buttonB;
+    MicroBitMultiButton         buttonAB;
     MicroBitAccelerometer       accelerometer;
     MicroBitCompass             compass;
     MicroBitCompassCalibrator   compassCalibrator;
