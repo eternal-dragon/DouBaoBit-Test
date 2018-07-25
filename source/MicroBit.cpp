@@ -60,14 +60,12 @@ RawSerial* SERIAL_DEBUG = NULL;
   */
 MicroBit::MicroBit() :
     serial(USBTX, USBRX),
-	resetButton(MICROBIT_PIN_BUTTON_RESET),
+
     storage(),
     i2c(I2C_SDA0, I2C_SCL0),
     messageBus(),
     display(),
-    buttonA(MICROBIT_PIN_BUTTON_A, MICROBIT_ID_BUTTON_A),
-    buttonB(MICROBIT_PIN_BUTTON_B, MICROBIT_ID_BUTTON_B),
-    buttonAB(MICROBIT_ID_BUTTON_A,MICROBIT_ID_BUTTON_B, MICROBIT_ID_BUTTON_AB),
+
     accelerometer(i2c),
     compass(i2c, accelerometer, storage),
     compassCalibrator(compass, accelerometer, display),
@@ -78,7 +76,9 @@ MicroBit::MicroBit() :
        MICROBIT_ID_IO_P9,MICROBIT_ID_IO_P10,MICROBIT_ID_IO_P11,
        MICROBIT_ID_IO_P12,MICROBIT_ID_IO_P13,MICROBIT_ID_IO_P14,
        MICROBIT_ID_IO_P15,MICROBIT_ID_IO_P16,MICROBIT_ID_IO_P19,
-       MICROBIT_ID_IO_P20),
+       MICROBIT_ID_IO_P20,MICROBIT_ID_IO_D0,MICROBIT_ID_IO_D1,
+       MICROBIT_ID_IO_D2,MICROBIT_ID_IO_D6,MICROBIT_ID_IO_D7,
+       MICROBIT_ID_IO_D8),
     bleManager(storage),
     radio(),
     ble(NULL)
