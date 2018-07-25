@@ -33,7 +33,6 @@ DEALINGS IN THE SOFTWARE.
 #include "MicroBitDevice.h"
 #include "ErrorNo.h"
 #include "MicroBitSystemTimer.h"
-#include "Matrix4.h"
 #include "MicroBitCompat.h"
 #include "MicroBitComponent.h"
 #include "ManagedType.h"
@@ -95,7 +94,8 @@ class MicroBit
     // Serial Interface
     MicroBitSerial              serial;
 
-
+	// Reset Button
+	InterruptIn     		    resetButton;
 
     // Persistent key value store
     MicroBitStorage             storage;
@@ -108,9 +108,11 @@ class MicroBit
 
     // Member variables to represent each of the core components on the device.
     MicroBitDisplay             display;
-
-    MicroBitAccelerometer       accelerometer;
-    MicroBitCompass             compass;
+    MicroBitButton              buttonA;
+    MicroBitButton              buttonB;
+    MicroBitMultiButton         buttonAB;
+    MicroBitAccelerometer       &accelerometer;
+    MicroBitCompass             &compass;
     MicroBitCompassCalibrator   compassCalibrator;
     MicroBitThermometer         thermometer;
 
